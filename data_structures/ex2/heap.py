@@ -1,11 +1,39 @@
 def heapsort(arr):
- pass 
+  heap = Heap()
+  result = []
+  while len(arr) > 0:
+    heap.insert(arr.pop())
+  
+  while heap.get_size() > 0:
+    result.append(heap.delete())
+
+  return result
+    
  
 
 class Heap:
   def __init__(self):
     self.storage = []
-    
+  def __str__(self):
+    rv = "Heap:\n"
+
+    l = 1
+    c = 0
+
+    for i in range(len(self.storage)):
+      rv += str(self.storage[i]) + "  "
+
+      c += 1
+
+      if c >= l:
+        rv += "\n" + "  " * l
+        c = 0
+        l *= 2
+
+    rv += "\n"
+
+    return rv
+
   def insert(self, value):
     self.storage.append(value)
     self._bubble_up(len(self.storage) - 1)
@@ -41,3 +69,9 @@ class Heap:
       return index * 2 + 1
     else:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
+
+
+array = [100,2,5,6,4,23,46]
+
+print(heapsort(array))
+
