@@ -1,3 +1,5 @@
+from random import randint
+
 def heapsort(arr):
   heap = Heap()
   result = []
@@ -7,9 +9,9 @@ def heapsort(arr):
   while heap.get_size() > 0:
     result.append(heap.delete())
 
+  result.reverse()
   return result
-    
- 
+
 
 class Heap:
   def __init__(self):
@@ -71,7 +73,25 @@ class Heap:
       return index * 2 + 1 if self.storage[index * 2 + 1] > self.storage[index * 2 + 2] else index * 2 + 2
 
 
-array = [100,2,5,6,4,23,46]
+# tests:
+# def gen_random_input(length, max):
+#   input = []
+#   for i in range(length):
+#     input.append(randint(0, max))
+#   return input
 
-print(heapsort(array))
+# def is_sorted(arr):
+#   for i in range(len(arr) - 1):
+#     if arr[i] > arr[i+1]:
+#       print(arr[i],arr[i+1])
+#       return False
+#   return True
+# length = randint(100, 1000)
+# input = gen_random_input(length, 1000)
+# output = heapsort(input)
+# is_sorted(output)
 
+# print(output)
+
+# self.assertEqual(len(output), length)
+# self.assertTrue(is_sorted(output))
