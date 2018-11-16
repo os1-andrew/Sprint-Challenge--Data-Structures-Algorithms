@@ -1,14 +1,32 @@
+from queue import *
+
 class BinarySearchTree:
   def __init__(self, value):
     self.value = value
     self.left = None
     self.right = None
-
+     
   def depth_first_for_each(self, cb):
     pass    
+    # print(self.value)
+    # if self.left:
+    #   self.left.depth_first_for_each(cb)
+    # if self.right:
+    #   self.right.depth_first_for_each(cb)
+    # return(cb(self))
 
   def breadth_first_for_each(self, cb):
-    pass
+    q = Queue()
+    q.put(self)
+
+    while not q.empty():
+      node = q.get()
+
+      cb(node.value)
+      if node.left:
+        q.put(node.left)
+      if node.right:
+        q.put(node.right)
 
   def insert(self, value):
     new_tree = BinarySearchTree(value)
@@ -44,3 +62,4 @@ class BinarySearchTree:
         max_value = current.value
       current = current.right
     return max_value
+
