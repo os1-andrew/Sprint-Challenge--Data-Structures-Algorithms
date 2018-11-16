@@ -3,6 +3,7 @@ Add your answers to the Algorithms exercises here.
 Exercise I:
 
 	a) O(n^3)
+	work: we are doing something from 0 to n^3. So we have to perform the action n^3 times for every n.
 
 	b) O(n^3)
 
@@ -14,7 +15,9 @@ Exercise I:
 	          for (l = k + 1; l < 10 + k; l++)  O(8)
 	            sum++
 
+	     total O(8 * n * n * n) = O(n)
 	c) O(n) or O(bunnies)
+	work: For every bunny in bunnies we are adding two to the running sum. so we have a running time of O(n).
 
 Exercise II:
 
